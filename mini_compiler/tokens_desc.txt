@@ -1,0 +1,30 @@
+TOKEN TYPES
+
+KEYWORD
+    int, float, print, if, else
+
+IDENTIFIER
+    (nomes de variáveis/funções criados pelo usuário)
+    Regras: começa com letra ou '_' e pode conter letras, dígitos e '_'
+    Exemplos: x, y1, _temp, variavel123
+
+NUMBER
+    Números inteiros e decimais
+    Exemplos válidos: 123, 123.45, .5
+    Exemplos inválidos: ., 5., 1.2.3
+
+ASSIGNMENT
+    =
+
+REL_OPERATOR
+    ==, >, <, >=, <=, !=
+    Obs: '!' sozinho é inválido
+
+MATH_OPERATOR
+    +, -, *, /
+
+LPAREN
+    (
+
+RPAREN
+    )
