@@ -1,5 +1,24 @@
 package util;
 
 public enum TokenType {
-	IDENTIFIER, NUMBER, REL_OPERATOR, MATH_OPERATOR, ASSIGNMENT, LPAREN, RPAREN, KEYWORD;
+	// Identificadores e números
+	IDENTIFIER,
+	NUMBER,
+
+	// Operadores
+	MATH_OPERATOR,   // +, -, *, /
+	REL_OPERATOR,    // >, <, >=, <=, ==, !=
+	ASSIGNMENT,      // =
+
+	// Delimitadores
+	LPAREN,          // (
+	RPAREN,          // )
+	COLON,           // :
+	SEMICOLON,       // ;
+
+	// Palavras-chave
+	KEYWORD,
+
+	// Fim de arquivo
+	EOF
 }

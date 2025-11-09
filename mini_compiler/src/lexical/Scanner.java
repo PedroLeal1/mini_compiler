@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Set;
 
 import util.TokenType;
 
@@ -24,8 +25,14 @@ public class Scanner {
 		}
 	}
 
-	private static final java.util.Set<String> KEYWORDS = java.util.Set.of(
-			"int", "float", "print", "if", "else"
+	private static final Set<String> KEYWORDS = Set.of(
+			"INICIO", "DECLS", "FIMDECLS", "CODIGO", "FIMPROG",
+			"INT", "FLOAT",
+			"LEIA", "ESCREVA",
+			"SE", "ENTAO", "SENAO",
+			"REPITA",
+			"BLOCO", "FIMBLOCO",
+			"E", "OU"
 	);
 
 	public Token nextToken() {
@@ -35,7 +42,7 @@ public class Scanner {
 
 		while (true) {
 			if (isEoF()) {
-				return null;
+				return new Token(TokenType.EOF, "EOF");
 			}
 			currentChar = nextChar();
 
@@ -107,6 +114,16 @@ public class Scanner {
 					}
 					if (currentChar == ')') {
 						return new Token(TokenType.RPAREN, ")");
+					}
+
+					// :
+					if (currentChar == ':') {
+						return new Token(TokenType.COLON, ":");
+					}
+
+					// ;
+					if (currentChar == ';') {
+						return new Token(TokenType.SEMICOLON, ";");
 					}
 
 					//  Questão 6: início de NUMBER

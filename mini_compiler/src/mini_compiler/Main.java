@@ -5,17 +5,18 @@
 package mini_compiler;
 
 import lexical.Scanner;
-import lexical.Token;
+import syntactic.Parser;
+import syntactic.SyntacticException;
 
 public class Main {
-	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner("mini_compiler/programa.mc");
-		Token tk;
-		do {
-			tk = sc.nextToken();
-			System.out.println(tk);
-		} while (tk!=null);
-	}
+		Scanner sc = new Scanner("mini_compiler/programa_ckp2_erro.txt");
+		Parser parser = new Parser(sc);
 
+		try {
+			parser.programa();
+		} catch (SyntacticException e) {
+			System.out.println("Erro sintático: " + e.getMessage());
+		}
+	}
 }
